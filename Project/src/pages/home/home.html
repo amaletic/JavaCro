@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>JavaCRO 17 / Program</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-grid  *ngFor="let item of items; let i=index">
+    <ion-row>
+      <ion-col col-6 text-left class="ion-col-1">{{item.dayOfWeek}}</ion-col>
+      <ion-col col-5 text-right class="ion-col-2">{{item.date}}</ion-col>
+      <ion-col col-1 text-right class="ion-col-1">
+            
+
+        <ion-icon [name]="item.hideme ? 'arrow-dropdown' : 'arrow-dropup'" (click)="onClick($event, item)" ></ion-icon>
+
+      </ion-col>
+    </ion-row>
+    <ion-row [hidden]="item.hideme">
+      <ion-col>
+       <ion-grid *ngFor="let hall of item.halls">
+         <ion-row>
+            <ion-col col-6 text-left>Vrijeme</ion-col>
+            <ion-col col-6 text-right>09:30</ion-col>
+         </ion-row>
+         <ion-row>
+            <ion-col col-4 text-left class="ion-col-1">{{hall.name}}</ion-col>
+            <ion-col col-7 text-left class="ion-col-2">{{hall.description}}</ion-col>
+            <ion-col col-1 text-right class="ion-col-1">
+              <ion-icon name="star-outline"></ion-icon>
+            </ion-col>
+         </ion-row>
+       </ion-grid>
+      </ion-col>
+    </ion-row>
+ </ion-grid>
+ 
+</ion-content>
