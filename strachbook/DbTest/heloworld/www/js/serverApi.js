@@ -1,13 +1,9 @@
-
-
-$(function() {
-
+(function(eko, $, undefined) {
+	eko.serverApi = (function() {
   const MODULE_ID="ServerAPI"
-  const SERVER_URL = "http://www.ekonerg.hr/ionic/rs";
+  const SERVER_URL = "http://www.ekonerg.hr/ionic/rs/pn/listj";//"http://www.ekonerg.hr/ionic/rs";
   const  LECTURE_LIST="pc/listj";
   
-
-
 	reloadCache=function(data)
 	{
 	
@@ -28,30 +24,26 @@ $(function() {
 				});
 		
  
-	}
-
-
-	
+	}	
 	getList = function(sucessCallback) {
 	
 		getJsonData(LECTURE_LIST, true, function(sucess,data)
 		{
+		   console.log(data);
 			if(sucess)
-			{
-			
-			if(sucessCallback!=null)
-			{
-				sucessCallback(reloadCache(data));
+			{			
+				if(sucessCallback!=null)
+				  {
+					sucessCallback(data);
+				  }
 			}
 			
-			$(".data").html(
-				JSON.stringify(data));
-			}
 		});
 		
 	};
 	
-	
-
-  getList(reloadCache);
-});
+	return {
+		    getList : getList
+		};
+	})();
+}(window.eko = window.eko || {}, jQuery));

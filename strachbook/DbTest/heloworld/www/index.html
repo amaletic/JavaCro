@@ -42,8 +42,51 @@
 			console.log( "ready!" );
 			$("#test").click(function()
 			{
-				console.log("Kliko na button")
+				console.log("Kliko na button");
+				eko.serverApi.getList(function(sucess,data)
+				{
+				   $(".data").html(JSON.stringify(data));
+				   			
+				});
 			});
+
+      
+      $('.arrow-title').on('click',{Id:"1"}, function (event) {             
+         
+          var show = $( this ).attr("show");
+          if(show == "true"){
+            $("#"+event.data.Id).hide();
+            $( this ).attr("show", false);          
+            
+            $(".arrow-title").removeClass("icon ion-arrow-left-b");
+            $(".arrow-title").addClass("ion-arrow-down-b");
+
+          }else{                
+            $("#"+event.data.Id).show();
+             $( this ).attr("show", true);
+
+            $(".arrow-title").removeClass("ion-arrow-down-b");
+            $(".arrow-title").addClass("icon ion-arrow-left-b");
+          }      
+        });
+
+      $('.arrow-time').on('click',{Id:"1"}, function (event ) {             
+         
+          var show = $( this ).attr("show");
+          if(show == "true"){
+            $("#body-"+event.data.Id).hide();
+            $( this ).attr("show", false);
+            $(".arrow-time").removeClass("icon ion-arrow-left-b");
+            $(".arrow-time").addClass("ion-arrow-down-b");
+
+          }else{                
+            $("#body-"+event.data.Id).show();
+            $( this ).attr("show", true);
+            $(".arrow-time").removeClass("ion-arrow-down-b");
+            $(".arrow-time").addClass("icon ion-arrow-left-b");
+          }      
+        });
+
 	});
 	
 	</script>
@@ -63,7 +106,52 @@
       <ion-content >
 		<div class="data" />
 	  	<button id="test" onclick="console.log('test me')" >test</button>
+    <div> 
+     <div class="prlu">
+         <div class="prli">
+             <div class="date-time">
+               <div class="date-time-title left">Petak, 12. svibanj 2017.                 
+                </div>               
+                <i class="icon ion-arrow-down-b arrow-title right"  show="false"></i>
+             </div>           
+             <div class="date-time-tbl" id="1">  
+              <div class="tbl">
+                <div class="tbl-body-hdr">
+                  <div class="tbl-hdr">
+                    <div class="tbl-hdr-cell left hdr-cell1 ">Vrijeme</div>
+                    <div class="tbl-hdr-cell left hdr-cell2">09:50                      
+                    </div>  
+                    <div class="tbl-hdr-cell left hdr-cell3">
+                      <i class="icon ion-arrow-down-b arrow-time" show="false"></i>
+                      </div>                                  
+                  </div>
+                <div>
+                <div class="tbl-body" id="body-1">
+                  <div class="tbl-row">
+                    <div class="tbl-row-cell left cell1">Dvorana A</div>
+                    <div class="tbl-row-cell left cell2">Konferenciju tradicionalno otvaraju predsjednik HUJAK-a dr. sc. Branko Mihaljevic i predsjednik HrOUG-a mr. sc. Davor Rankovic.
+                    </div>
+                    <div class="tbl-row-cell left cell3">
+                      <i class="icon ion-star"></i>
+                    </div>
+                  </div>
+                  <div class="tbl-row">
+                    <div class="tbl-row-cell left cell1">Dvorana B</div>
+                    <div class="tbl-row-cell left cell2">Konferenciju tradicionalno otvaraju predsjednik HUJAK-a dr. sc. Branko Mihaljevic i predsjednik HrOUG-a mr. sc. Davor Rankovic.
+                    </div>
+                    <div class="tbl-row-cell left cell3">
+                      <i class="icon ion-star"></i>
+                    </div>
+                  </div>
+                </div>                    
+            </div>
+            </div>            
+         </div>           
+         <div>
+    </div>  
+        
       </ion-content>
     </ion-pane>
   </body>
 </html>
+

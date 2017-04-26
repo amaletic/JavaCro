@@ -1,1 +1,88 @@
 /* Empty. Add your own CSS if you like */
+.prlu, .prli,.prli,.date-time {
+ display:block;
+ clear: both;
+ float:left;
+ width:100%;
+}
+
+.date-time{        
+    background-color: #e76f00;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    padding: 5px 10px;
+    border: 1px solid #CCC;
+}
+
+.date-time-title,.arrow-title{
+   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 600;
+    line-height: 1.5em;
+    font-size: 14px;
+    color: #fff;
+    display:inline-block;    
+}
+.arrow-title,.arrow-time{
+ cursor: pointer; 
+}
+
+.tbl,.tbl-hdr,.date-time-tbl,.tbl-body,.tbl-row,.tbl-body-hdr{
+ display:block;
+ clear: both;
+ float:left;
+ width:100%; 
+}
+.tbl-hdr,.tbl-row{
+padding: 5px 10px;
+border-bottom: 1px solid #CCC;
+}
+
+.tbl-hdr-cell,.tbl-row-cell{
+ display:inline-block; 
+ text-align:left
+}
+
+.left{
+    float:left;
+}
+.right{
+    float:right;
+}
+
+.date-time-tbl,.tbl-body{
+    display:none;
+}
+.ion-star{
+   color: #e76f00;
+}
+.tbl-row-cell,.tbl-hdr-cell{
+  width: 20%;
+  text-align:left
+}
+.cell2{
+  width: 70%;
+}
+
+.cell3{
+  width: 10%;
+  text-align: right;  
+}
+
+.tbl-row-cell .ion-star{
+    text-align:right; 
+}
+
+.tbl-row:nth-child(odd) {
+  background: #F1F2F2;
+}
+
+.hdr-cell1{
+   width: 20%; 
+}
+.hdr-cell2{
+   width: 70%; 
+}
+.hdr-cell3{
+   width: 10%; 
+   text-align: right;  
+}
