@@ -86,3 +86,6 @@ border-bottom: 1px solid #CCC;
    width: 10%; 
    text-align: right;  
 }
+.tbl-body-container {
+    margin-left: 3vw;
+}

@@ -1,8 +1,9 @@
 (function(eko, $, undefined) {
 	eko.serverApi = (function() {
   const MODULE_ID="ServerAPI"
-  const SERVER_URL = "http://www.ekonerg.hr/ionic/rs/pn/listj";//"http://www.ekonerg.hr/ionic/rs";
-  const  LECTURE_LIST="pc/listj";
+	    const SERVER_URL = "http://www.ekonerg.hr/ionic/rs";
+	    const LECTURE_LIST = "pn/listj";
+	    const DEBUG_ME = false;
   
 	reloadCache=function(data)
 	{
@@ -14,36 +15,42 @@
 
 	getJsonData = function(serviceCode,showError, callback)
 	{
- 		var jqxhr = $.getJSON( SERVER_URL+ "/"+ serviceCode, function(data) {
-			console.log(MODULE_ID+ "AJAX success" );
-			callback(true, data);
+	    var jqxhr = $.getJSON(SERVER_URL + "/" + serviceCode, function (data) {
+	            if (DEBUG_ME) {
+	                console.log(MODULE_ID + "AJAX success");
+	            }
+	            callback(true, data);
 		})
 		.fail(function(error) {
-					console.log(error);
+			
 					console.error( MODULE_ID +" AJAX failed " + error.message);
 				});
 		
  
 	}	
-	getList = function(sucessCallback) {
-	
+	getPredavanja = function(sucessCallback) {
+
 		getJsonData(LECTURE_LIST, true, function(sucess,data)
 		{
-		   console.log(data);
-			if(sucess)
-			{			
-				if(sucessCallback!=null)
-				  {
-					sucessCallback(data);
-				  }
-			}
+		    if (DEBUG_ME) {
+		        console.log(MODULE_ID + " result " + sucess);
+		    }
+		    // $(".data").html(JSON.stringify(data)); 
+				
+			
+				    sucessCallback(sucess,data);
+				    //console.log($(".data"))
+				   
+		
 			
 		});
 		
 	};
+
+
 	
 	return {
-		    getList : getList
+	    getPredavanja: getPredavanja
 		};
 	})();
 }(window.eko = window.eko || {}, jQuery));
