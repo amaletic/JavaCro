@@ -50,11 +50,16 @@ border-bottom: 1px solid #CCC;
 }
 
 .date-time-tbl,.tbl-body{
-    display:none;
+  
 }
-.ion-star{
+.icon-star-favorite{
    color: #e76f00;
 }
+
+.icon-star-not-favorite{
+   color: #c0c0c0;
+}
+
 .tbl-row-cell,.tbl-hdr-cell{
   width: 20%;
   text-align:left
@@ -89,3 +94,36 @@ border-bottom: 1px solid #CCC;
 .tbl-body-container {
     margin-left: 3vw;
 }
+.header {
+    display: block;
+    clear: both;
+    float: left;
+}
+.actionHeader {
+    display: inline-block;
+    float: left;
+    margin-left: 1vw;
+    margin-right: 1vw;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+
+}
+.notExpanded {
+    display: none;
+}
+.notFavoriteHidden {
+     display: none;
+}
+.noDataHidden {
+    display: none;
+}
+.pasedHidden {
+     display: none;
+}
+.predavanjePassed {
+    background: #cccccc !important;
+}
+.activePredavanje {
+      background: #3cb371 !important;
+}
+

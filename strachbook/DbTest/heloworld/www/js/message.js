@@ -1,4 +1,4 @@
-(function (eko, $, undefined) {
+﻿(function (eko, $, undefined) {
     eko.message = (function () {
 
         const  MODULE_ID = "MessagingModule"
@@ -19,7 +19,11 @@
             showError: showError,
 
 
-            ERROR_LOADING_CACHE : "Gre�ka kod u�itavanja podataka. Poku�ajte ponovno"
+            ERROR_LOADING_CACHE: "Greška kod učitavanja podataka. Pokušajte ponovno",
+            HIDE_NOT_FAVORITE: "Sakriti neoznačene",
+            SHOW_NOT_FAVORITE: "Prikaži i neoznačene",
+            HIDE_PASSED: "Sakriti prošle",
+            SHOW_PASSED: "Show prošle"
 
         };
     })();
