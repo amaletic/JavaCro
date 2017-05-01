@@ -1,5 +1,6 @@
 ﻿<!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
@@ -20,9 +21,11 @@
     <link href="css/style.css" rel="stylesheet">
 
     <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
-    <link href="css/ionic.app.css" rel="stylesheet">
+     <link href="css/ionic.app.css" rel="stylesheet">
     -->
-    <!-- ionic/angularjs js -->
+   
+
+
     <script src="lib/ionic/js/ionic.bundle.js"></script>
 
     <!-- cordova script (this will be a 404 during development) -->
@@ -30,8 +33,9 @@
 
     <!-- your app's js -->
     <script src="js/jquery-3.2.1.min.js"></script>
+	<script src="js/message.js"></script>
     <script src="js/app.js"></script>
-    <script src="js/message.js"></script>
+ 
     <script src="js/serverApi.js"></script>
     <!--
     <script src="js/db.js"></script>
@@ -43,49 +47,82 @@
     <script>
 
 
+           
     </script>
 
 
 </head>
+
 <body>
 
-    <div class="bar bar-header bar-java-cro">
-        <h1 class="title app-title">Java Cro 2017</h1>
-    </div>
-    <div class="tabs-striped tabs-top tabs-background-positive tabs-color-light">
-        <div class="tabs">
-            <a class="tab-item active" href="#">
-                <i class="icon ion-home"></i>
-                Home
-            </a>
-            <a class="tab-item" href="#">
-                <i class="icon ion-gear-a"></i>
-                Postavke
-            </a>
-            <a class="tab-item" href="#">
-                <i class="icon  ion-information"></i>
-                O Aplikaciji
-            </a>
+  
 
-        </div>
-    </div>
-    <div class="tabs-striped tabs-color-assertive">
-        <div class="tabs">
-            <a class="tab-item active" href="#">
-                <i class="icon ion-home"></i>
-                Home
-            </a>
-            <a class="tab-item" href="#">
-                <i class="icon ion-gear-a"></i>
-                Postavke
-            </a>
-            <a class="tab-item" href="#">
-                <i class="icon  ion-information"></i>
-                O Aplikaciji
-            </a>
+    <body ng-app="javaCro">
+		<ion-spinner icon="spiral"></ion-spinner>
+        <ion-header-bar class="bar bar-header bar-java-cro">
+            <div class="app-title">Java Cro 2017</div>
+            <div ng-controller="SettingsCtrl" class="header-favorite" id="appControler">
+				
+                <ion-toggle ng-model="favoritesFilter"  class="toggle-small" toggle-class="toggle-calm" ng-change="toggleFavorites()" ></ion-toggle>
+				<div class="favorites-title">Samo favoriti</div>
+            </div>
 
-        </div>
-    </div>
+        </ion-header-bar>
+        <ion-tabs class="tabs-striped tabs-top tabs-background-positive tabs-color-light">
+
+            <ion-tab title="Home" icon-on="ion-ios-filing" icon-off="ion-ios-filing-outline">
+                <!-- Tab 1 content -->
+                <div class="bar bar-header bar-light">
+                    <h1 class="title"></h1>
+                </div>
+				
+                <ion-content padding class="content content-md list-content">
+				
+                    <div class="dataCont">
+                    </div>
+                </ion-content>
+            </ion-tab>
+
+
+            <ion-tab title="Settings" icon-on="ion-ios-gear" icon-off="ion-ios-gear-outline">
+                <div class="bar bar-header bar-light">
+                    <h1 class="title"></h1>
+                </div>
+                <ion-content padding class="content content-md">
+                    <div>
+                        <div ng-controller="SettingsCtrl">
+
+                         
+                            <ion-toggle ng-model="closedFilter" ng-change="toggleClosed()" toggle-class="toggle-calm">Skrivanje završenih</ion-toggle>
+
+
+
+
+                        </div>
+						   </div>
+                </ion-content>
+            </ion-tab>
+
+
+            <ion-tab title="About" icon-on="ion-ios-information" icon-off="ion-ios-information-outline">
+                <div class="bar bar-header bar-light">
+                    <h1 class="title"></h1>
+                </div>
+                <ion-content padding class="content content-md">
+                    <div>
+                        Ekonerg 1
+                    </div>
+                </ion-content>
+            </ion-tab>
+
+        </ion-tabs>
+
+
+
+    </body>
+
+
+
 
     <!--
     <div class="dataCont">
@@ -110,4 +147,5 @@
 
 
 </body>
+
 </html>

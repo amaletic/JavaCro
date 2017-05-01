@@ -223,6 +223,7 @@
             eko.serverApi.getCacheVersion(function (cache) {
 
                 var data = getPredavanja();
+				data=null;
                 var appCache=getAppCache();
 
                 if (appCache == null || (cache != null && cache > 0 && cache != appCache)) {
@@ -238,7 +239,7 @@
                     if (onSucess != null) {
 
                         onSucess(data);
-
+                    
                     }
                     return;
                 }

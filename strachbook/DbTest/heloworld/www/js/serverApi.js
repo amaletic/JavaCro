@@ -24,6 +24,7 @@
                 .fail(function(error) {
 
                     console.error(MODULE_ID + " AJAX failed " + error.message);
+					 callback(false,  error.message);
                 });
 
 
@@ -31,13 +32,15 @@
 
 
         getCacheVersion = function(sucessCallback) {
-
+			$(".spinner").show();
             getJsonData(CACHE_VERSION, false, function(sucess, data) {
+				$(".spinner").hide();
                 if (DEBUG_ME) {
                     console.log(MODULE_ID + " result " + sucess);
                 }
                 if (!sucess) {
-                    return -2;
+                    sucessCallback(-2);
+					return;
                 }
 
                 if (data != null && data.value != null) {
@@ -54,12 +57,13 @@
 
         getPredavanja = function(sucessCallback) {
 
+			$(".spinner").show();
             getJsonData(LECTURE_LIST, true, function(sucess, data) {
 
                 if (DEBUG_ME) {
                     console.log(MODULE_ID + " result " + sucess + "CACHE VERSION =" + cache);
                 }
-
+				
                 sucessCallback(sucess, data);
                 //console.log($(".data"))
 
