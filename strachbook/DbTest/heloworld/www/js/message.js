@@ -15,10 +15,25 @@
 	
 
 
-        }
+        },
 
+        showLoading =function()
+        {
+            	$(".spinner").show();
+                $(".tab-content").hide();
+                //$(".tab-content")
+                
+                
+        }
+        hideLoading =function()
+        {
+            //	.hide(); 
+                $(".tab-content").show();
+        }
         return {
             showError: showError,
+            showLoading: showLoading,
+            hideLoading : hideLoading,
 
             ERROR_TITLE: "Greška",
             ERROR_LOADING_CACHE: "Provjerite internet konekciju",

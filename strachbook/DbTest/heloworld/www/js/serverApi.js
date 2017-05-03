@@ -57,7 +57,7 @@
 
         getPredavanja = function(sucessCallback) {
 
-			$(".spinner").show();
+		
             getJsonData(LECTURE_LIST, true, function(sucess, data) {
 
                 if (DEBUG_ME) {

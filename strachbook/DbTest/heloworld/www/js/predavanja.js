@@ -260,8 +260,10 @@
                     eko.cache.setVrijemeExpanded($(this).attr("timeremoteid"), true);
                 }
             });
+          
+            eko.message.hideLoading();
 
-            $(".spinner").hide();
+          
 
         }
 
@@ -407,6 +409,7 @@
         getPredavanjaCache = function () {
 
             eko.cache.getPredavanjaCache(function (data) {
+
 
                 if (DEBUG_ME) {
                     console.log(MODULE_ID + " LOAD START");
