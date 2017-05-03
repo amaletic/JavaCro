@@ -261,7 +261,7 @@
                 }
             });
           
-            eko.message.hideLoading();
+
 
           
 
@@ -408,6 +408,7 @@
 
         getPredavanjaCache = function () {
 
+            eko.message.showLoading();
             eko.cache.getPredavanjaCache(function (data) {
 
 
@@ -428,6 +429,8 @@
 
                     // $(template).appendTo(dataCont);
                     loadEventHadler();
+
+                   eko.message.hideLoading();
                 });
 
             });

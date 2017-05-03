@@ -20,15 +20,18 @@
         showLoading =function()
         {
             	$(".spinner").show();
-                $(".tab-content").hide();
+            	$(".tab-content").hide();
+
+          	$(".tab-content").css('z-index', -1);
                 //$(".tab-content")
                 
                 
         }
         hideLoading =function()
         {
-            //	.hide(); 
-                $(".tab-content").show();
+           $(".spinner").hide();
+            $(".tab-content").show();
+           $(".tab-content").css('z-index', 1);
         }
         return {
             showError: showError,

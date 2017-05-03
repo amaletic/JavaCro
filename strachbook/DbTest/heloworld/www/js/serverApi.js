@@ -32,9 +32,9 @@
 
 
         getCacheVersion = function(sucessCallback) {
-			$(".spinner").show();
+            eko.message.showLoading();
             getJsonData(CACHE_VERSION, false, function(sucess, data) {
-				$(".spinner").hide();
+             
                 if (DEBUG_ME) {
                     console.log(MODULE_ID + " result " + sucess);
                 }
