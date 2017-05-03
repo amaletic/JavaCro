@@ -189,11 +189,12 @@
             filterPrevious();
 
             setInterval(filterPrevious, CHECK_OLD_EVERY_MILISECONDS);
-            $('.predavanje-row').on('click', function (event) {
+            $('.predavanje-favorite').on('click', function (event) {
 
-                var favoriteHolder = $(this).find(".favorite-holder");
+                              var favoriteHolder = $(this).parent().find(".favorite-holder");
                 var favorite = favoriteHolder.hasClass("icon-star-not-favorite");
-                eko.cache.setPredavanjeFavorite($(this).attr("remoteIdPredavanje"), favorite);
+                var Id = $( this ).parent().attr("remoteIdPredavanje");
+                eko.cache.setPredavanjeFavorite(Id, favorite);
                 if (favorite) {
 
                     favoriteHolder.removeClass("icon-star-not-favorite");
@@ -203,14 +204,17 @@
                     favoriteHolder.removeClass("icon-star-favorite");
                     favoriteHolder.addClass("icon-star-not-favorite");
                 }
-                $(this).attr("favorite", favorite);
-
-
-
+                $(this).parent().attr("favorite", favorite);          
 
 
             });
 
+            $('.details').on('click', function (event) {
+                        
+               var Id = $( this ).parent().attr("remoteIdPredavanje");
+               window.location.href= "/details.html?id="+Id; 
+
+            });
 
             $('.date-time').on('click', function (event) {
                 var arrow = $(this).find(".arrow-title");
@@ -468,8 +472,7 @@
                 alertPopup.then(function (res) {
                    	ionic.Platform.exitApp();
                 });
-            };
-
+            };    
 
         });
 

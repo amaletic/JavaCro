@@ -29,6 +29,7 @@ ion-scroll[direction=y] {
     border-top-right-radius: 3px;
     padding: 5px 10px;
     border: 1px solid #CCC;
+    cursor: pointer;
 }
 
 .date-time-title,.arrow-title{
@@ -48,6 +49,9 @@ ion-scroll[direction=y] {
  clear: both;
  float:left;
  width:100%; 
+}
+.tbl-hdr{
+    cursor: pointer;
 }
 .tbl-hdr,.tbl-row{
 padding: 5px 10px;
@@ -148,6 +152,11 @@ border-bottom: 1px solid #CCC;
 .header-favorite
 {
 	float: right;
+}
+
+.predavanje-row{
+
+ cursor:pointer; 
 }
 .predavanje-row .cell1
 {
