@@ -422,6 +422,13 @@
 		
 				$(".title").html(predavanje.naziv)
 				$(".dvorana").html(predavanje.dvorana.naziv);
+				
+			loadCacheImage($(".predavac1"),predavanje.predavac1.slikaData);
+		}
+		loadCacheImage= function(cont, data)
+		{
+			cont.attr("src", "data:image/png;base64," +data);
+		
 		}
 
 
