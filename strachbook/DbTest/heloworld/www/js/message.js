@@ -7,10 +7,14 @@
         if (DEBUG_ME) {
             console.log(MODULE_ID + " PRESTART");
         }
+		getListControlerInstance=function()
+		{
+			return angular.element(document.getElementById('appControler')).scope();
+		}
 
         showError = function (data) {
 
-		angular.element(document.getElementById('appControler')).scope().showAlert(data);
+		getListControlerInstance().showAlert(data);
 		
 	
 

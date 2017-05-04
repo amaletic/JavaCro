@@ -21,4 +21,14 @@ angular.module('starter', ['ionic'])
       StatusBar.styleDefault();
     }
   });
-})
+});
+/*
+.config(function($stateProvider, $urlRouterProvider) {
+        $stateProvider
+            .state('details', {
+                url: '/details.html',
+                templateUrl: 'details.html',
+           
+            })
+           });*/
+        

@@ -7,6 +7,10 @@
 
         console.log(MODULE_ID + " PRESTART");
 
+		getListControlerInstance=function()
+		{
+			return angular.element(document.getElementById('appControler')).scope();
+		}
 
         formatVrijeme = function (data) {
             if (data == null) {
@@ -211,8 +215,9 @@
 
             $('.details').on('click', function (event) {
                         
-               var Id = $( this ).parent().attr("remoteIdPredavanje");
-               window.location.href= "/details.html?id="+Id; 
+               var id = $( this ).parent().attr("remoteIdPredavanje");
+            //   window.location.href= "/details.html?id="+Id; 
+			   	getListControlerInstance().openDetails(id);
 
             });
 
@@ -274,11 +279,11 @@
         loadTemplate = function (callback) {
 
 
-            if (ionic.Platform.isAndroid()) {
-                url = "/android_asset/www/predavanjeTemplate.html";
-            } else {
-                url = "../predavanjeTemplate.html";
-            }
+           // if (ionic.Platform.isAndroid()) { 
+            //    url = "/android_asset/www/predavanjeTemplate.html";
+            //} else {
+                url = "predavanjeTemplate.html";
+            //}
 
             $.ajax({
                 url: url,
@@ -408,6 +413,16 @@
 
 
         }
+		
+		getPredavanjeDetails=function()
+		{
+			var predavanje = eko.cache.getPredavanjeById(eko.cache.getDetailsId());
+			console.log(predavanje);
+		//	alert(eko.cache.getDetailsId());
+		
+				$(".title").html(predavanje.naziv)
+				$(".dvorana").html(predavanje.dvorana.naziv);
+		}
 
 
         getPredavanjaCache = function () {
@@ -440,19 +455,41 @@
             });
         }
         $(document).ready(function () {
+		
+		  if(window.location.href.indexOf("details.html") > -1  ) {
+			getPredavanjeDetails();
+		 } else {
             getPredavanjaCache();
-
+		  } 
 
 
 
 
         });
+		
+		
+		 
 
-        angular.module('javaCro', ['ionic']).controller('SettingsCtrl', function ($scope, $ionicPopup) {
+               
+
+
+        angular.module('javaCro', ['ionic']).controller('SettingsCtrl', function ($scope, $ionicPopup, $location,	$window) {
             $scope.favoritesFilter = eko.cache.getFilterFavorites();
             $scope.closedFilter = eko.cache.getFilterPreviousHide();
 
-
+			$scope.backToList=function()
+			{
+				$window.open("index.html",'_self');
+			}
+			$scope.openDetails =function(id)
+			{
+				//alert("tu sam"+ "/#"+"/details.html");
+				//$window.location.href = "/#"+"/details.html";
+				
+				eko.cache.setDetailsId(id);
+				$window.open("details.html",'_self');
+			
+			}
             $scope.toggleFavorites = function () {
                 eko.cache.setFilterFavorites($scope.favoritesFilter);
                 filterFavorites()
@@ -473,7 +510,8 @@
                    	ionic.Platform.exitApp();
                 });
             };    
-
+			
+			
         });
 
         return {

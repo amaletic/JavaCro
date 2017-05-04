@@ -6,6 +6,8 @@
         const HIDE_UNAMRKED_ID = "HideUnmarked";
         const HIDE_PREVIOUS_ID = "HidePrevious";
         const APP_CACHE_VERSION = "AppCacheVersion";
+		const APP_DETAILS="DetailsForPredavanje";
+		
         const DEBUG_ME = true;
         if (DEBUG_ME) {
             console.log(MODULE_ID + " PRESTART");
@@ -66,6 +68,24 @@
 
             return false;
 
+
+        }
+		getDetailsId = function () {
+
+
+            var ret = localStorage.getItem(APP_DETAILS);
+            if (ret != null && !(ret === undefined) && ret != "undefined") {
+                return ret;
+            }
+
+
+            return null;
+
+        }
+
+        setDetailsId = function (id) {
+
+            localStorage.setItem(APP_DETAILS, id);
 
         }
         getPredavanja = function () {
@@ -214,7 +234,12 @@
             setPredavanja(data);
 
         };
-
+		getPredavanjeById=function(remoteId)
+		{
+			var data = getPredavanja();
+            var predavanje = getPredavanjeByRemoteId(data, remoteId);
+			return predavanje;
+		};
 
 
 
@@ -277,7 +302,10 @@
             setVrijemeExpanded: setVrijemeExpanded,
             getVrijemeExpanded: getVrijemeExpanded,
             setFilterPreviousHide: setFilterPreviousHide,
-            getFilterPreviousHide: getFilterPreviousHide
+            getFilterPreviousHide: getFilterPreviousHide,
+			getDetailsId: getDetailsId,
+			setDetailsId: setDetailsId,
+			getPredavanjeById: getPredavanjeById,
 
         };
     })();

@@ -5,6 +5,14 @@
  float:left;
  width:100%;
 }
+.back-icon
+{
+color: white;
+}
+.back-button
+{
+ background-color: transparent !important;
+}
 .scroll
 {
    /*  height: 100vh;*/
