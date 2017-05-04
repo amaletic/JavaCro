@@ -13,9 +13,81 @@ color: white;
 {
  background-color: transparent !important;
 }
+.details-cont
+{
+    margin-left: 1vw;
+    margin-right: 1vw;
+    margin-top: 1vh;
+}
+.predavacSlika1, .predavacSlika2, .predavacOpis
+{
+    display: inline-block;
+    float: left;
+}
+.predavac-cont {
+  padding-top: 1vh;
+  padding-bottom:  1vh;
+  padding-left:  1vh;
+  padding-right:  1vh;
+  margin-top: 3vh;
+  background-color:   #ededed;
+  float: left;
+  display: block;
+  width: 100%;
+}
+.imePrezime1, .imePrezime2
+{
+    font-weight: bold;
+    font-size: 16px;
+}
+.opis
+{
+    margin-top:2vh;
+}
+
+
+.details-row
+{
+    margin-top: 1vh;  
+    display: block;
+    clear: both;
+}
+.imePrezime1, imePrezime1 
+{
+    margin-top: 2vh ; 
+}
+.zivotopis1, .zivotopis2
+{
+     margin-top: 1vh !important; 
+}
+.detailsLabel
+{
+    font-weight: bold;
+    font-size: 16px;
+}
+.inline-cell
+{
+    display: inline-block;
+    float: left;
+}
+.start
+{
+ white-space: nowrap;
+}
+.dvorana
+{
+    position: absolute;
+	left: 50%;
+    top: 50%;
+	transform: translate(-50%,-50%);
+    font-size:16px;
+    display: inline-block;
+    white-space: nowrap;
+
+}
 .scroll
 {
-   /*  height: 100vh;*/
+   height: 100vh;
        overflow-y: auto;
 
 }

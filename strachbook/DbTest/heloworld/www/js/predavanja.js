@@ -7,10 +7,9 @@
 
         console.log(MODULE_ID + " PRESTART");
 
-		getListControlerInstance=function()
-		{
-			return angular.element(document.getElementById('appControler')).scope();
-		}
+        getListControlerInstance = function () {
+            return angular.element(document.getElementById('appControler')).scope();
+        }
 
         formatVrijeme = function (data) {
             if (data == null) {
@@ -195,9 +194,9 @@
             setInterval(filterPrevious, CHECK_OLD_EVERY_MILISECONDS);
             $('.predavanje-favorite').on('click', function (event) {
 
-                              var favoriteHolder = $(this).parent().find(".favorite-holder");
+                var favoriteHolder = $(this).parent().find(".favorite-holder");
                 var favorite = favoriteHolder.hasClass("icon-star-not-favorite");
-                var Id = $( this ).parent().attr("remoteIdPredavanje");
+                var Id = $(this).parent().attr("remoteIdPredavanje");
                 eko.cache.setPredavanjeFavorite(Id, favorite);
                 if (favorite) {
 
@@ -208,16 +207,16 @@
                     favoriteHolder.removeClass("icon-star-favorite");
                     favoriteHolder.addClass("icon-star-not-favorite");
                 }
-                $(this).parent().attr("favorite", favorite);          
+                $(this).parent().attr("favorite", favorite);
 
 
             });
 
             $('.details').on('click', function (event) {
-                        
-               var id = $( this ).parent().attr("remoteIdPredavanje");
-            //   window.location.href= "/details.html?id="+Id; 
-			   	getListControlerInstance().openDetails(id);
+
+                var id = $(this).parent().attr("remoteIdPredavanje");
+                //   window.location.href= "/details.html?id="+Id; 
+                getListControlerInstance().openDetails(id);
 
             });
 
@@ -269,20 +268,20 @@
                     eko.cache.setVrijemeExpanded($(this).attr("timeremoteid"), true);
                 }
             });
-          
 
 
-          
+
+
 
         }
 
         loadTemplate = function (callback) {
 
 
-           // if (ionic.Platform.isAndroid()) { 
+            // if (ionic.Platform.isAndroid()) { 
             //    url = "/android_asset/www/predavanjeTemplate.html";
             //} else {
-                url = "predavanjeTemplate.html";
+            url = "predavanjeTemplate.html";
             //}
 
             $.ajax({
@@ -413,23 +412,43 @@
 
 
         }
-		
-		getPredavanjeDetails=function()
-		{
-			var predavanje = eko.cache.getPredavanjeById(eko.cache.getDetailsId());
-			console.log(predavanje);
-		//	alert(eko.cache.getDetailsId());
-		
-				$(".title").html(predavanje.naziv)
-				$(".dvorana").html(predavanje.dvorana.naziv);
-				
-			loadCacheImage($(".predavac1"),predavanje.predavac1.slikaData);
-		}
-		loadCacheImage= function(cont, data)
-		{
-			cont.attr("src", "data:image/png;base64," +data);
-		
-		}
+
+        getPredavanjeDetails = function () {
+            var predavanje = eko.cache.getPredavanjeById(eko.cache.getDetailsId());
+            console.log(predavanje);
+            //	alert(eko.cache.getDetailsId());
+
+            $(".naziv").html(predavanje.naziv)
+            $(".dvorana").html(predavanje.dvorana.naziv);
+            $(".opis").html(predavanje.opis);
+            $(".lang").html(predavanje.jezik);
+            $(".start").html(predavanje.datum + " (" + predavanje.dan + ")");
+            $(".trajanje").html(predavanje.trajanje + " min");
+            $(".oznaka").html(predavanje.oznakaPredavanja);
+            if (predavanje.predavac1 != null) {
+                $(".imePrezime1").html(predavanje.predavac1.imePrezime + " (" + predavanje.predavac1.poduzece + ") ");
+                $(".zivotopis1").html(predavanje.predavac1.opis);
+                  loadCacheImage($(".predavacSlika1"), predavanje.predavac1.slikaData);
+            } else {
+                $(".predavac1").hide();
+            }
+            if (predavanje.predavac2 != null) {
+                $(".imePrezime2").html(predavanje.predavac2.imePrezime + " (" + predavanje.predavac2.poduzece + ") ");
+                $(".zivotopis2").html(predavanje.predavac2.opis);
+                loadCacheImage($(".predavacSlika2"), predavanje.predavac2.slikaData);
+            } else {
+                $(".predavac2").hide();
+            }
+
+
+
+
+          
+        }
+        loadCacheImage = function (cont, data) {
+            cont.attr("src", "data:image/png;base64," + data);
+
+        }
 
 
         getPredavanjaCache = function () {
@@ -456,47 +475,45 @@
                     // $(template).appendTo(dataCont);
                     loadEventHadler();
 
-                   eko.message.hideLoading();
+                    eko.message.hideLoading();
                 });
 
             });
         }
         $(document).ready(function () {
-		
-		  if(window.location.href.indexOf("details.html") > -1  ) {
-			getPredavanjeDetails();
-		 } else {
-            getPredavanjaCache();
-		  } 
+
+            if (window.location.href.indexOf("details.html") > -1) {
+                getPredavanjeDetails();
+            } else {
+                getPredavanjaCache();
+            }
 
 
 
 
         });
-		
-		
-		 
-
-               
 
 
-        angular.module('javaCro', ['ionic']).controller('SettingsCtrl', function ($scope, $ionicPopup, $location,	$window) {
+
+
+
+
+
+        angular.module('javaCro', ['ionic']).controller('SettingsCtrl', function ($scope, $ionicPopup, $location, $window) {
             $scope.favoritesFilter = eko.cache.getFilterFavorites();
             $scope.closedFilter = eko.cache.getFilterPreviousHide();
 
-			$scope.backToList=function()
-			{
-				$window.open("index.html",'_self');
-			}
-			$scope.openDetails =function(id)
-			{
-				//alert("tu sam"+ "/#"+"/details.html");
-				//$window.location.href = "/#"+"/details.html";
-				
-				eko.cache.setDetailsId(id);
-				$window.open("details.html",'_self');
-			
-			}
+            $scope.backToList = function () {
+                $window.open("index.html", '_self');
+            }
+            $scope.openDetails = function (id) {
+                //alert("tu sam"+ "/#"+"/details.html");
+                //$window.location.href = "/#"+"/details.html";
+
+                eko.cache.setDetailsId(id);
+                $window.open("details.html", '_self');
+
+            }
             $scope.toggleFavorites = function () {
                 eko.cache.setFilterFavorites($scope.favoritesFilter);
                 filterFavorites()
@@ -509,16 +526,16 @@
             // An alert dialog
             $scope.showAlert = function (data) {
                 var alertPopup = $ionicPopup.alert({
-                    title:   eko.message.ERROR_TITLE,
+                    title: eko.message.ERROR_TITLE,
                     template: data
                 });
 
                 alertPopup.then(function (res) {
                    	ionic.Platform.exitApp();
                 });
-            };    
-			
-			
+            };
+
+
         });
 
         return {

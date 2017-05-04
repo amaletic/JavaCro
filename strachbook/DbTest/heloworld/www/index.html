@@ -23,7 +23,7 @@
     <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
      <link href="css/ionic.app.css" rel="stylesheet">
     -->
-   
+
 
 
     <script src="lib/ionic/js/ionic.bundle.js"></script>
@@ -33,9 +33,9 @@
 
     <!-- your app's js -->
     <script src="js/jquery-3.2.1.min.js"></script>
-	<script src="js/message.js"></script>
+    <script src="js/message.js"></script>
     <script src="js/app.js"></script>
- 
+
     <script src="js/serverApi.js"></script>
     <!--
     <script src="js/db.js"></script>
@@ -55,26 +55,28 @@
 
 <body>
 
-  
+
 
     <body ng-app="javaCro">
-		<ion-spinner icon="spiral"></ion-spinner>
+        <ion-spinner icon="spiral"></ion-spinner>
         <ion-header-bar class="bar bar-header bar-java-cro">
             <div class="app-title">Java Cro 2017</div>
             <div ng-controller="SettingsCtrl" class="header-favorite" id="appControler">
-				
-                <ion-toggle ng-model="favoritesFilter"  class="toggle-small" toggle-class="toggle-calm" ng-change="toggleFavorites()" ></ion-toggle>
-				<div class="favorites-title">Samo favoriti</div>
+
+                <ion-toggle ng-model="favoritesFilter" class="toggle-small" toggle-class="toggle-calm" ng-change="toggleFavorites()"></ion-toggle>
+                <div class="favorites-title">Samo favoriti</div>
             </div>
 
         </ion-header-bar>
         <ion-tabs class="tabs-striped tabs-top tabs-background-positive tabs-color-light">
 
             <ion-tab title="Home" icon-on="ion-ios-filing" icon-off="ion-ios-filing-outline">
-           
-				
-                <ion-content padding class="content content-md list-content has-header" >
-				
+                <div class="bar bar-header bar-light">
+                    <h1 class="title"></h1>
+                </div>
+
+                <ion-content padding class="content content-md list-content has-header has-tabs-top  tabs-top">
+
                     <div class="dataCont">
                     </div>
                 </ion-content>
@@ -82,25 +84,27 @@
 
 
             <ion-tab title="Settings" icon-on="ion-ios-gear" icon-off="ion-ios-gear-outline">
-         >
+              <div class="bar bar-header bar-light">
+                    <h1 class="title"></h1>
+                </div>
                 <ion-content padding class="content content-md  has-header">
                     <div>
                         <div ng-controller="SettingsCtrl">
 
-                         
+
                             <ion-toggle ng-model="closedFilter" ng-change="toggleClosed()" toggle-class="toggle-calm">Skrivanje završenih</ion-toggle>
 
 
 
 
                         </div>
-						   </div>
+                    </div>
                 </ion-content>
             </ion-tab>
 
 
             <ion-tab title="About" icon-on="ion-ios-information" icon-off="ion-ios-information-outline">
-                <div class="bar bar-header bar-light">
+               <div class="bar bar-header bar-light">
                     <h1 class="title"></h1>
                 </div>
                 <ion-content padding class="content content-md  has-header">
