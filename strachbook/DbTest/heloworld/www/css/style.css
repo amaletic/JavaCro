@@ -103,13 +103,14 @@ text-align: justify;
 .scroll
 {
 
-  height: 100vh;
-   overflow-y: auto;
+  /*height: 100vh;
+   overflow-y: auto;*/
 
 }
 .dataCont
 {
-   overflow-y: auto;
+	display: inline-block;
+  /* overflow-y: auto;*/
  /* float: left;*/
 }
 /*

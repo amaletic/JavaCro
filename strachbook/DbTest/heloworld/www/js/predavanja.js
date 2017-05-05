@@ -477,7 +477,7 @@
 
                     eko.message.hideLoading();
 					
-					$(".dataCont").attr("style", "calc(100% - " + ($(".bar-header").height()+ "px")+ " - " + ($(".tab-nav").height() +"px )"));
+					//$(".dataCont").attr("style", "height: calc(100vh - " + ($(".bar-header").height()+ "px")+ " - " + ($(".tab-nav").height() +"px )"));
 
                 });
 
