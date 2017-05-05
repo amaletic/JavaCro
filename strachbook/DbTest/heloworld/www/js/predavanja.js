@@ -476,6 +476,9 @@
                     loadEventHadler();
 
                     eko.message.hideLoading();
+					
+					$(".dataCont").attr("style", "calc(100% - " + ($(".bar-header").height()+ "px")+ " - " + ($(".tab-nav").height() +"px )"));
+
                 });
 
             });

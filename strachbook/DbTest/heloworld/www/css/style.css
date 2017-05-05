@@ -25,10 +25,7 @@ color: white;
     float: left;
 }
 .predavac-cont {
-  padding-top: 1vh;
-  padding-bottom:  1vh;
-  padding-left:  1vh;
-  padding-right:  1vh;
+
   margin-top: 3vh;
   background-color:   #ededed;
   float: left;
@@ -43,8 +40,29 @@ color: white;
 .opis
 {
     margin-top:2vh;
+	
+}
+.details-cont
+{
+	padding-top: 2vh;
+    padding-bottom: 2vh;
+    padding-left: 2vh;
+    padding-right: 2vh;
+    margin-top: 3vh;
 }
 
+.predavac-cont
+{
+	padding-top: 1vh;
+    padding-bottom: 1vh;
+    padding-left: 1vh;
+    padding-right: 1vh;
+    margin-top: 3vh;
+}
+.opis, .zivotopis1, .zivotopis2
+{
+text-align: justify;
+}
 
 .details-row
 {
@@ -84,22 +102,32 @@ color: white;
 }
 .scroll
 {
-   height: 100vh;
-       overflow-y: auto;
+
+  height: 100vh;
+   overflow-y: auto;
 
 }
-/*ion-scroll[direction=x] {
-  width: 100vw;
-  overflow-y: auto;
+.dataCont
+{
+   overflow-y: auto;
+ /* float: left;*/
 }
-ion-scroll[direction=y] {
+/*
+.ion-scroll[direction=x] {
+  width: 100vw;
+
+}
+.ion-scroll[direction=y] {
   height: 100vh;
+    overflow-y: auto;
 }*/
 .button.button-positive
 {
  background-color: #e76f00;
 }
-
+.overflow-scroll {
+  overflow-y: auto;
+}
 .date-time{        
     background-color: #e76f00;
     border-top-left-radius: 3px;
@@ -231,15 +259,27 @@ border-bottom: 1px solid #CCC;
 	float: right;
 }
 
-.predavanje-row{
+.dvorana-row {
+
 
  cursor:pointer; 
-}
-.predavanje-row .cell1
-{
-	
+ position:relative;
 }
 
+.dvorana-row .cell1
+{
+	 position:absolute;
+	 top:6px;
+	 left: 5px;
+
+	 height: calc(100% - 10px);
+	 
+}
+.predavanje-row .cell2
+{
+	margin-left:75px;
+	 
+}
 * {
     font-family: sans-serif;
 }
@@ -248,6 +288,10 @@ border-bottom: 1px solid #CCC;
     background-color: rgb(231, 111, 0);
     color: #fff;
 
+}
+.dvorana
+{
+ color: white;
 }
 .tabs-background-app {
    
