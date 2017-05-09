@@ -117,9 +117,13 @@
     /*height: 100vh;
    overflow-y: auto;*/
 }
-
+.prli, .prlu, .dataCont {
+    width: 100vw !important;
+}
 .dataCont {
     display: inline-block;
+    width: 100vw;
+    
     /* overflow-y: auto;*/
     /* float: left;*/
 }

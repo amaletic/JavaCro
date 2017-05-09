@@ -422,7 +422,7 @@
             $(".dvorana").html(predavanje.dvorana.naziv);
             $(".opis").html(predavanje.opis);
             $(".lang").html(predavanje.jezik);
-            $(".start").html(predavanje.datum + " (" + predavanje.dan + ")");
+            $(".start").html(predavanje.datum + " (" + predavanje.danDesc + ")");
             $(".trajanje").html(predavanje.trajanje + " min");
             $(".oznaka").html(predavanje.oznakaPredavanja);
             if (predavanje.predavac1 != null) {
